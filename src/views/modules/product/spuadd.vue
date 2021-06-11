@@ -639,6 +639,7 @@ export default {
     },
     getShowSaleAttr() {
       //获取当前分类可以使用的销售属性
+      console.log("获取当前分类可以使用的销售属性", !this.dataResp.steped[1]);
       if (!this.dataResp.steped[1]) {
         this.$http({
           url: this.$http.adornUrl(
@@ -665,6 +666,7 @@ export default {
       }
     },
     showBaseAttrs() {
+      console.log("获取当前分类可以使用的销售属性", !this.dataResp.steped[0]);
       if (!this.dataResp.steped[0]) {
         this.$http({
           url: this.$http.adornUrl(
