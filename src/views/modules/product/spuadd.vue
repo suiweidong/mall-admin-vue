@@ -207,7 +207,7 @@
                     ></multi-upload>
                   </el-col>
                   <el-col :span="24">
-                    <el-divider></el-divider>
+                    <el-divider content-position="center"/>
                   </el-col>
                   <el-col :span="24">
                     <el-card

@@ -9,8 +9,8 @@
           <brand-select style="width:160px"></brand-select>
         </el-form-item>
         <el-form-item label="价格">
-          <el-input-number style="width:160px" v-model="dataForm.price.min" :min="0"></el-input-number>-
-          <el-input-number style="width:160px" v-model="dataForm.price.max" :min="0"></el-input-number>
+          <el-input-number style="width:160px" v-model="dataForm.price.min" :min=null></el-input-number>-
+          <el-input-number style="width:160px" v-model="dataForm.price.max" :min=null></el-input-number>
         </el-form-item>
         <el-form-item label="检索">
           <el-input style="width:160px" v-model="dataForm.key" clearable></el-input>
@@ -99,12 +99,12 @@ export default {
       catPathSub: null,
       brandIdSub: null,
       dataForm: {
-        key: "",
-        brandId: 0,
-        catelogId: 0,
+        key: null,
+        brandId: null,
+        catelogId: null,
         price: {
-          min: 0,
-          max: 0
+          min: null,
+          max: null
         }
       },
       dataList: [],
