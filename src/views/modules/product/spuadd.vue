@@ -461,8 +461,8 @@ export default {
         decript: [], 
         images: [], 
         bounds: {
-          buyBounds: 0,
-          growBounds: 0
+          buyBounds: "",
+          growBounds: ""
         },
         baseAttrs: [], 
         skus: []
