@@ -140,6 +140,10 @@ export default {
       let items = this.dataListSelections.map(item => {
         return item.id;
       });
+      let wareId = this.dataListSelections.map(item => {
+        return item.wareId;
+      })[0];
+      console.log("wareId：", wareId);
       if (!this.purchaseId) {
         this.$confirm(
           "没有选择任何【采购单】，将自动创建新单进行合并。确认吗？",
@@ -154,7 +158,7 @@ export default {
             this.$http({
               url: this.$http.adornUrl("/ware/purchase/merge"),
               method: "post",
-              data: this.$http.adornData({ items: items }, false)
+              data: this.$http.adornData({ items: items, wareId: wareId }, false)
             }).then(({ data }) => {
               this.getDataList();
             });
@@ -165,9 +169,7 @@ export default {
           url: this.$http.adornUrl("/ware/purchase/merge"),
           method: "post",
           data: this.$http.adornData(
-            { purchaseId: this.purchaseId, items: items },
-            false
-          )
+            { purchaseId: this.purchaseId, items: items, wareId: wareId }, false)
         }).then(({ data }) => {
           this.getDataList();
         });
@@ -180,7 +182,9 @@ export default {
         method: "get",
         params: this.$http.adornParams({})
       }).then(({ data }) => {
-        this.purchasetableData = data.page.list;
+        console.log(data);
+        console.log(data.list);
+        this.purchasetableData = data.list;
       });
     },
     handleBatchCommand(cmd) {
